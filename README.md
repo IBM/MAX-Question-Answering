@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/IBM/MAX-Question-Answering.svg?branch=master)](https://travis-ci.com/IBM/MAX-Question-Answer) [![Website Status](https://img.shields.io/website/http/max-question-answering.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-question-answer.max.us-south.containers.appdomain.cloud/)
+[![Build Status](https://travis-ci.com/IBM/MAX-Question-Answering.svg?branch=master)](https://travis-ci.com/IBM/MAX-Question-Answering) [![Website Status](https://img.shields.io/website/http/max-question-answering.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-question-answering.max.us-south.containers.appdomain.cloud/)
 
 [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
 
