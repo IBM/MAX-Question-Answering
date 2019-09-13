@@ -73,8 +73,9 @@ class ModelPredictAPI(PredictAPI):
         result = {'status': 'error'}
 
         input_json = MAX_API.payload
-        if input_json["paragraphs"][0]["context"] == "":
-            abort(400, "Empty input, please provide a paragraph.")
+        for p in input_json["paragraphs"]:
+            if p["context"] == "":
+                abort(400, "Empty input, please provide a paragraph.")
 
         preds = self.model_wrapper.predict(input_json)
         # Create a flat list of answers
