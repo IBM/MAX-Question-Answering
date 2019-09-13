@@ -84,7 +84,6 @@ def test_empty_question():
     }
 
     r = requests.post(url=model_endpoint, json=json_data)
-    # No input paragraph provided so it should return 400
     assert r.status_code == 200
     response = r.json()
     assert response['status'] == 'ok'
