@@ -54,7 +54,7 @@ class ModelWrapper(MAXModelWrapper):
 
         # Initialize the tokenizer
         self.tokenizer = FullTokenizer(
-            vocab_file='core/vocab.txt', do_lower_case=True)
+            vocab_file='assets/vocab.txt', do_lower_case=True)
 
         self.predict_fn = predictor.from_saved_model(DEFAULT_MODEL_PATH)
 

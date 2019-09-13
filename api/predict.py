@@ -40,14 +40,16 @@ paragraphs_example = [
   ]
 
 article = MAX_API.model('Article JSON object', {
-    'context': fields.String(required=True, description="Paragraph or two of text where answers to questions can be found.",
+    'context': fields.String(required=True, description="Text where answers to questions can be found.",
                              example=context_example),
     'questions': fields.List(fields.String(description="Questions to be answered from the context.",
                                            example=question_example))
 })
 
 input_parser = MAX_API.model('Data JSON object', {
-    'paragraphs': fields.List(fields.Nested(article), example=paragraphs_example)
+    'paragraphs': fields.List(fields.Nested(article),
+                              description="List of paragraphs, each with a context and follow up questions.",
+                              example=paragraphs_example)
 })
 
 # Creating a JSON response model:
@@ -71,8 +73,9 @@ class ModelPredictAPI(PredictAPI):
         result = {'status': 'error'}
 
         input_json = MAX_API.payload
-        if input_json["paragraphs"][0]["context"] == "":
-            abort(400, "Empty input, please provide a paragraph.")
+        for p in input_json["paragraphs"]:
+            if p["context"] == "":
+                abort(400, "Empty input, please provide a paragraph.")
 
         preds = self.model_wrapper.predict(input_json)
         # Create a flat list of answers

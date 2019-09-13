@@ -27,5 +27,5 @@ API_DESC = 'Answer questions on a given corpus of text.'
 API_VERSION = '1.0.0'
 
 # default model
-MODEL_NAME = '1560446380'
+MODEL_NAME = 'max_qa_model'
 DEFAULT_MODEL_PATH = 'assets/{}'.format(MODEL_NAME)

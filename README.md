@@ -55,7 +55,8 @@ On datasets where the answers given are designed to not be exact matches to a sp
 # Steps
 
 1. [Deploy from Docker Hub](#deploy-from-docker-hub)
-2. [Deploy on Kubernetes](#deploy-on-kubernetes)
+2. [Deploy on Red Hat OpenShift](#deploy-on-red-hat-openshift) 
+3. [Deploy on Kubernetes](#deploy-on-kubernetes)
 3. [Run Locally](#run-locally)
 
 ## Deploy from Docker Hub
@@ -68,6 +69,10 @@ $ docker run -it -p 5000:5000 codait/max-question-answering
 
 This will pull a pre-built image from Docker Hub (or use an existing image if already cached locally) and run it.
 If you'd rather checkout and build the model locally you can follow the [run locally](#run-locally) steps below.
+
+## Deploy on Red Hat OpenShift
+
+You can deploy the model-serving microservice on Red Hat OpenShift by following the instructions for the OpenShift web console or the OpenShift Container Platform CLI [in this tutorial](https://developer.ibm.com/tutorials/deploy-a-model-asset-exchange-microservice-on-red-hat-openshift/), specifying `codait/max-question-answering` as the image name.
 
 ## Deploy on Kubernetes
 
