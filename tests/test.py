@@ -63,12 +63,16 @@ def test_invalid():
 
     json_data_2 = {"paragraphs": [{"context": "",
                                    "questions": ["What did Albert Einstein discover?"]}]}
+    
+    json_data_3 = {}
 
     r1 = requests.post(url=model_endpoint, json=json_data_1)
     r2 = requests.post(url=model_endpoint, json=json_data_2)
+    r3 = requests.post(url=model_endpoint, json=json_data_3)
 
     assert r1.status_code == 400
     assert r2.status_code == 400
+    assert r3.status_code == 400
 
 
 def test_empty_question():
