@@ -63,7 +63,7 @@ def test_invalid():
 
     json_data_2 = {"paragraphs": [{"context": "",
                                    "questions": ["What did Albert Einstein discover?"]}]}
-    
+
     json_data_3 = {}
 
     r1 = requests.post(url=model_endpoint, json=json_data_1)
