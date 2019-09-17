@@ -76,8 +76,14 @@ class ModelPredictAPI(PredictAPI):
         try:
             for p in input_json["paragraphs"]:
                 if p["context"] == "":
-                    abort(400, "Empty input, please provide a paragraph.")
+                    abort(400, "Invalid input, please provide a paragraph.")
+                if not isinstance(p["questions"], list):
+                    abort(400, "Invalid input, questions should be a list.")
+                for k in p.keys():
+                    assert k in ["context", "questions"]
         except KeyError:
+            abort(400, "Invalid input, please check the JSON format.")
+        except AssertionError:
             abort(400, "Invalid input, please check the JSON format.")
 
         preds = self.model_wrapper.predict(input_json)
