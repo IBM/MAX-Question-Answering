@@ -75,16 +75,16 @@ class ModelPredictAPI(PredictAPI):
         input_json = MAX_API.payload
         try:
             for p in input_json["paragraphs"]:
+                for k in p.keys():
+                    assert k in ["context", "questions"]
                 if p["context"] == "":
                     abort(400, "Invalid input, please provide a paragraph.")
                 if not isinstance(p["questions"], list):
                     abort(400, "Invalid input, questions should be a list.")
-                for k in p.keys():
-                    assert k in ["context", "questions"]
         except KeyError:
-            abort(400, "Invalid input, please check the JSON format.")
+            abort(400, "Invalid input, please check that the input JSON has a `paragraphs` field.")
         except AssertionError:
-            abort(400, "Invalid input, please check the JSON format.")
+            abort(400, "Invalid input, please ensure that the input JSON has `context` and `questions` fields.")
 
         preds = self.model_wrapper.predict(input_json)
         # Create a flat list of answers
