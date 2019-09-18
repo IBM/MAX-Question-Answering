@@ -42,7 +42,7 @@ paragraphs_example = [
 article = MAX_API.model('Article JSON object', {
     'context': fields.String(required=True, description="Text where answers to questions can be found.",
                              example=context_example),
-    'questions': fields.List(fields.String(description="Questions to be answered from the context.",
+    'questions': fields.List(fields.String(required=True, description="Questions to be answered from the context.",
                                            example=question_example))
 })
 
@@ -75,8 +75,7 @@ class ModelPredictAPI(PredictAPI):
         input_json = MAX_API.payload
         try:
             for p in input_json["paragraphs"]:
-                for k in p.keys():
-                    assert k in ["context", "questions"]
+                assert frozenset(p.keys()) == frozenset(["context", "questions"])
                 if p["context"] == "":
                     abort(400, "Invalid input, please provide a paragraph.")
                 if not isinstance(p["questions"], list):
