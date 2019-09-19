@@ -52,6 +52,7 @@ def test_metadata():
 def test_invalid():
     model_endpoint = 'http://localhost:5000/model/predict'
 
+    # empty context
     json_data_1 = {
         "paragraphs": [
             {
@@ -60,15 +61,23 @@ def test_invalid():
             }
         ]
     }
-
+    # empty context with non empty questions
     json_data_2 = {"paragraphs": [{"context": "",
                                    "questions": ["What did Albert Einstein discover?"]}]}
-
+    # empty json
+    json_data_3 = {}
+    # json with invalid keys (Qs instead of questions)
+    json_data_4 = {"paragraphs": [{"context": "",
+                                   "Qs": ["What did Albert Einstein discover?"]}]}
     r1 = requests.post(url=model_endpoint, json=json_data_1)
     r2 = requests.post(url=model_endpoint, json=json_data_2)
+    r3 = requests.post(url=model_endpoint, json=json_data_3)
+    r4 = requests.post(url=model_endpoint, json=json_data_4)
 
     assert r1.status_code == 400
     assert r2.status_code == 400
+    assert r3.status_code == 400
+    assert r4.status_code == 400
 
 
 def test_empty_question():
@@ -84,7 +93,6 @@ def test_empty_question():
     }
 
     r = requests.post(url=model_endpoint, json=json_data)
-    # No input paragraph provided so it should return 400
     assert r.status_code == 200
     response = r.json()
     assert response['status'] == 'ok'
