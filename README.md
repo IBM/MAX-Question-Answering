@@ -58,6 +58,7 @@ On datasets where the answers given are designed to not be exact matches to a sp
 2. [Deploy on Red Hat OpenShift](#deploy-on-red-hat-openshift) 
 3. [Deploy on Kubernetes](#deploy-on-kubernetes)
 3. [Run Locally](#run-locally)
+4. [Train this model](#train-this-model)
 
 ## Deploy from Docker Hub
 
@@ -205,3 +206,7 @@ To run the Flask API app in debug mode, edit `config.py` to set `DEBUG = True` u
 ### 6. Cleanup
 
 To stop the Docker container, type `CTRL` + `C` in your terminal.
+
+## Train this model
+
+Follow [instructions](training/README.md) to train this model using your own data on Watson Machine Learning a Deep Learning as-a-service offering of [IBM Cloud](https://ibm.biz/Bdz2XM).

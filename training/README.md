@@ -133,7 +133,7 @@ The model-serving microservice out of the box serves the pre-trained model. To s
 1. Rebuild the Docker image
 
    ```
-   $ docker build -t <max-model-name> --build-arg use_pre_trained_model=false . 
+   $ docker build -t max-question-answering --build-arg use_pre_trained_model=false . 
     ...
    ```
    
@@ -142,5 +142,5 @@ The model-serving microservice out of the box serves the pre-trained model. To s
  Once the Docker image build completes you can start the microservice as usual:
  
  ```
- $ docker run -it -p 5000:5000 <max-model-name>
+ $ docker run -it -p 5000:5000 max-question-answering
  ```

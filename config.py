@@ -24,7 +24,7 @@ SWAGGER_UI_DOC_EXPANSION = 'none'
 # API metadata
 API_TITLE = 'MAX Question Answering'
 API_DESC = 'Answer questions on a given corpus of text.'
-API_VERSION = '1.0.0'
+API_VERSION = '2.0.0'
 
 # default model
 MODEL_NAME = 'max_qa_model'
