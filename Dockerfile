@@ -41,6 +41,9 @@ RUN if [ "$use_pre_trained_model" = "true" ] ; then \
       # rename the directory that contains the custom-trained model artifacts
       if [ -d "./custom_assets/" ] ; then \
         rm -rf ./assets && ln -s ./custom_assets ./assets ; \
+        mkdir -p custom_assets/temp/ ; \
+        wget -nv --show-progress --progress=bar:force:noscroll ${model_bucket}/${model_file} --output-document=custom_assets/temp/${model_file} &&\
+        tar -x -C custom_assets/temp/ -f custom_assets/temp/${model_file} -v && mv custom_assets/temp/vocab.txt custom_assets/vocab.txt && rm custom_assets/temp/${model_file} ; \
       fi \
     fi
 
