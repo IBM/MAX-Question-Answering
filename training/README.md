@@ -69,7 +69,7 @@ Open a terminal window, change dir into `$MODEL_REPO_HOME_DIR/training` and inst
      ...
    ```
 
-   If prepartion completed successfully:
+   If preparation completed successfully:
 
     - Training data is present in the Cloud Object Storage bucket that WML will access during model training.
     - Model training code is packaged `max-question-answering-model-building-code.zip`
