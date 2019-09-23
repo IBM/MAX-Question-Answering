@@ -24,7 +24,7 @@ The format is shown below for reference. The full example JSON can be found in t
                   {
                      "answers":[
                         {
-                           "answer_start":int,
+                           "answer_start":"int",
                            "text":""
                         }
                      ],
