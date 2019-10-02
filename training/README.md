@@ -2,6 +2,7 @@
 
 - [Prepare your data for training](#prepare-data-for-training)
 - [Train the model](#train-the-model)
+ - [Rebuild the model-serving microservice](#rebuild-the-model-serving-microservice) 
 
 
 ## Prepare Data for Training
