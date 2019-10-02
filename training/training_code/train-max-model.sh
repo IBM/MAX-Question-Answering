@@ -5,8 +5,6 @@
 
 # --------------------------------------------------------------------
 #  Standard training wrapper script for Model Asset Exchange models
-#  Complete the following IBM customization steps and remove the TODO
-#  comments.
 # --------------------------------------------------------------------
 
 SUCCESS_RETURN_CODE=0
@@ -72,7 +70,7 @@ if [ $json_count -gt 1 ]; then
     echo "ERROR: There are multiple .json files present in the data directory."
     exit $ENV_ERROR_RETURN_CODE
 else
-    # Assign it to the TRAIN_DATA variable
+    # Assign it to the TRAINING_DATA variable
     TRAINING_DATA=`ls ${DATA_DIR}/*.json`
 fi
 
@@ -108,15 +106,6 @@ fi
 
 echo "Training completed. Output is stored in $RESULT_DIR."
 
-# ---------------------------------------------------------------
-# IBM TODO:
-# Add post processing code as necessary; for example
-#  - patch the TensorFlow checkpoint file (if applicable)
-#  - convert the trained model into other formats
-#  - ... 
-# I don't think this is necessary but I should figure this out
-# ---------------------------------------------------------------
-
 echo "# ************************************************************"
 echo "# Post processing ..."
 echo "# ************************************************************"
@@ -129,28 +118,6 @@ cd ${RESULT_DIR}/model
 # Post processing for serialized TensorFlow models: 
 # If the output of the training run is a TensorFlow checkpoint, patch it. 
 #
-
-# if [ -d ${RESULT_DIR}/model/checkpoint ]; then 
-#   # the training run created a directory named checkpoint
-#   if [ -f ${RESULT_DIR}/model/checkpoint/checkpoint ]; then
-#     # this directory contains a checkpoint file; patch it
-#     mv ${RESULT_DIR}/model/checkpoint/checkpoint ${RESULT_DIR}/model/checkpoint/checkpoint.bak
-#     sed 's:/.*/::g' ${RESULT_DIR}/model/checkpoint/checkpoint.bak > ${RESULT_DIR}/model/checkpoint/checkpoint
-#     if [ $? -gt 0 ]; then
-#       echo "[Post processing] Warning. Patch of TensorFlow checkpoint file failed. "
-#       mv ${RESULT_DIR}/model/checkpoint/checkpoint.bak ${RESULT_DIR}/model/checkpoint/checkpoint
-#     else
-#       echo "[Post processing] TensorFlow checkpoint file was successfully patched."
-#       rm ${RESULT_DIR}/model/checkpoint/checkpoint.bak
-#     fi
-#   fi    
-# fi  
-
-#
-# TODO: add custom code if required; e.g. to convert the
-#       trained model into other formats ...
-#
-
 # ---------------------------------------------------------------
 # Prepare for packaging
 # (1) create the staging directory structure
@@ -169,8 +136,6 @@ TRAINING_STAGING_DIR=${BASE_STAGING_DIR}/trained_model
 mkdir -p $TRAINING_STAGING_DIR
 
 # TensorFlow-specific directories
-#MODEL_ARTIFACT_TARGET_PATH=${TRAINING_STAGING_DIR}/tensorflow/checkpoint
-#MODEL_ARTIFACT_TARGET_PATH=${TRAINING_STAGING_DIR}/tensorflow/frozen_graph_def
 MODEL_ARTIFACT_TARGET_PATH=${TRAINING_STAGING_DIR}/tensorflow/saved_model
 if [ -z ${MODEL_ARTIFACT_TARGET_PATH+x} ];
   then "Error. This script was not correctly customized."
@@ -180,19 +145,6 @@ mkdir -p $MODEL_ARTIFACT_TARGET_PATH
 
 #
 # 2. copy trained model artifacts to $MODEL_ARTIFACT_TARGET_PATH
-# IBM TODO: 
-#   1) Add commands that copy the model training artifacts from 
-#   ${RESULT_DIR}/model/... to $MODEL_ARTIFACT_TARGET_PATH
-#   2) Remove the TODO comment
-# Example for tensorflow checkpoint files:
-#if [ -d ${RESULT_DIR}/model/checkpoint ]; then
-#  cp -R ${RESULT_DIR}/model/checkpoint ${TRAINING_STAGING_DIR}/tensorflow/
-#fi
-# Example for tensorflow frozen graph files:
-#if [ -d ${RESULT_DIR}/model/frozen_graph_def ]; then
-#  cp -R ${RESULT_DIR}/model/frozen_graph_def ${TRAINING_STAGING_DIR}/tensorflow/
-#fi
-# Example for tensorflow saved_model files:
 if [ -d ${RESULT_DIR}/model/saved_model ]; then
   cp -R ${RESULT_DIR}/model/saved_model/variables $MODEL_ARTIFACT_TARGET_PATH
   cp ${RESULT_DIR}/model/saved_model/saved_model.pb $MODEL_ARTIFACT_TARGET_PATH

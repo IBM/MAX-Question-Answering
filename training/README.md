@@ -1,11 +1,10 @@
 ## How to train this model using your own data
 
-- [Prepare your data for training](#prepare-your-data-for-training)
+- [Prepare your data for training](#prepare-data-for-training)
 - [Train the model](#train-the-model)
-- [Rebuild the model-serving microservice](#rebuild-the-model-serving-microservice)
 
 
-## Prepare your data for training
+## Prepare Data for Training
 
 To prepare your data for training complete the steps listed in [data_preparation/README.md](data_preparation/README.md).
 
@@ -48,12 +47,11 @@ Open a terminal window, change dir into `$MODEL_REPO_HOME_DIR/training` and inst
    MacOS example:
 
    ```
+   $ export ML_INSTANCE=...
+   $ export ML_APIKEY=...
+   $ export ML_ENV=...
    $ export AWS_ACCESS_KEY_ID=...
    $ export AWS_SECRET_ACCESS_KEY=...
-   $ export ML_INSTANCE=...
-   $ export ML_USERNAME=...
-   $ export ML_PASSWORD=...
-   $ export ML_ENV=...
    ```
 
 ### Train the model using Watson Machine Learning
@@ -130,11 +128,10 @@ Open a terminal window, change dir into `$MODEL_REPO_HOME_DIR/training` and inst
 
 The model-serving microservice out of the box serves the pre-trained model. To serve your trained model you have to rebuild the Docker image:
 
-1. Rebuild the Docker image
+Rebuild the Docker image
 
    ```
-   $ docker build -t max-question-answering --build-arg use_pre_trained_model=false . 
-    ...
+   $ docker build -t max-question-answering --build-arg use_pre_trained_model=false .
    ```
    
    > If the optional parameter `use_pre_trained_model` is set to `true` or if the parameter is not defined the Docker image will be configured to serve the pre-trained model.
