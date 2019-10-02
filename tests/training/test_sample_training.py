@@ -18,6 +18,7 @@ import pytest
 import requests
 import json
 
+
 def test_multiple_paragraphs():
     model_endpoint = 'http://localhost:5000/model/predict'
     json_data = {
