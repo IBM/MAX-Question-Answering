@@ -18,6 +18,7 @@ FROM codait/max-base:v1.1.3
 
 ARG model_bucket=https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-dev/max-question-answering/1.1.0
 ARG model_file=assets.tar.gz
+ARG vocab_file=vocab.txt
 
 WORKDIR /workspace
 
@@ -41,9 +42,7 @@ RUN if [ "$use_pre_trained_model" = "true" ] ; then \
       # rename the directory that contains the custom-trained model artifacts
       if [ -d "./custom_assets/" ] ; then \
         rm -rf ./assets && ln -s ./custom_assets ./assets ; \
-        mkdir -p custom_assets/temp/ ; \
-        wget -nv --show-progress --progress=bar:force:noscroll ${model_bucket}/${model_file} --output-document=custom_assets/temp/${model_file} &&\
-        tar -x -C custom_assets/temp/ -f custom_assets/temp/${model_file} -v && mv custom_assets/temp/vocab.txt custom_assets/vocab.txt && rm custom_assets/temp/${model_file} ; \
+        wget -nv --show-progress --progress=bar:force:noscroll ${model_bucket}/${vocab_file}} --output-document=custom_assets/${vocab_file} ; \
       fi \
     fi
 
