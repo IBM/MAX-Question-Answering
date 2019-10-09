@@ -1094,14 +1094,14 @@ def main(_):
         # export to saved model
         estimator._export_to_tpu = False
         saved_model_path = estimator.export_saved_model(
-            os.path.join(FLAGS.output_dir, 'model/saved_model'), serving_input_fn,
+            os.path.join(FLAGS.output_dir, 'model/saved_model/max_qa_model'), serving_input_fn,
             checkpoint_path=latest_model).decode("utf-8")
 
         # move the model files to the saved_model directory
         for filename in os.listdir(saved_model_path):
             shutil.move(os.path.join(saved_model_path, filename),
                         os.path.join(os.path.dirname(saved_model_path), filename))
-
+        shutil.copy(os.path.join(folder_path, 'vocab.txt'), os.path.join(FLAGS.output_dir, 'model/saved_model/vocab.txt'))
         shutil.rmtree(saved_model_path, ignore_errors=True)
 
 

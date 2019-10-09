@@ -146,8 +146,8 @@ mkdir -p $MODEL_ARTIFACT_TARGET_PATH
 #
 # 2. copy trained model artifacts to $MODEL_ARTIFACT_TARGET_PATH
 if [ -d ${RESULT_DIR}/model/saved_model ]; then
-  cp -R ${RESULT_DIR}/model/saved_model/variables $MODEL_ARTIFACT_TARGET_PATH
-  cp ${RESULT_DIR}/model/saved_model/saved_model.pb $MODEL_ARTIFACT_TARGET_PATH
+  cp -R ${RESULT_DIR}/model/saved_model/max_qa_model $MODEL_ARTIFACT_TARGET_PATH
+  cp ${RESULT_DIR}/model/saved_model/vocab.txt $MODEL_ARTIFACT_TARGET_PATH
 fi
 
 # The following files should now be present in BASE_STAGING_DIR
