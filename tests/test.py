@@ -150,9 +150,8 @@ def test_response():
     model_endpoint = 'http://localhost:5000/model/predict'
     file_path = 'samples/small-dev.json'
 
-    with open(file_path, 'rb') as file:
-        file = file.read()
-        json_data = json.loads(file.decode('utf-8'))
+    with open(file_path, 'r') as file:
+        json_data = json.load(file)
         r = requests.post(url=model_endpoint, json=json_data)
 
     assert r.status_code == 200
