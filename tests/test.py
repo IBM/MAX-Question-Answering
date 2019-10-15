@@ -151,7 +151,8 @@ def test_response():
     file_path = 'samples/small-dev.json'
 
     with open(file_path, 'rb') as file:
-        json_data = json.load(file)
+        file = file.read()
+        json_data = json.loads(file.decode('utf-8'))
         r = requests.post(url=model_endpoint, json=json_data)
 
     assert r.status_code == 200
