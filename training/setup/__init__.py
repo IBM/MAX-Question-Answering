@@ -13,19 +13,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-# Flask settings
-DEBUG = False
-
-# Flask-restplus settings
-RESTPLUS_MASK_SWAGGER = False
-SWAGGER_UI_DOC_EXPANSION = 'none'
-
-# API metadata
-API_TITLE = 'MAX Question Answering'
-API_DESC = 'Answer questions on a given corpus of text.'
-API_VERSION = '2.0.0'
-
-# default model
-MODEL_NAME = 'max_qa_model'
-DEFAULT_MODEL_PATH = 'assets/{}'.format(MODEL_NAME)

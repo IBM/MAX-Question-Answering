@@ -52,12 +52,12 @@ On datasets where the answers given are designed to not be exact matches to a sp
 * `docker`: The [Docker](https://www.docker.com/) command-line interface. Follow the [installation instructions](https://docs.docker.com/install/) for your system.
 * The minimum recommended resources for this model is 2 GiB Memory and 4 CPUs.
 
-# Steps
+## Deployment Options
 
-1. [Deploy from Docker Hub](#deploy-from-docker-hub)
-2. [Deploy on Red Hat OpenShift](#deploy-on-red-hat-openshift) 
-3. [Deploy on Kubernetes](#deploy-on-kubernetes)
-3. [Run Locally](#run-locally)
+* [Deploy from Docker Hub](#deploy-from-docker-hub)
+* [Deploy on Red Hat OpenShift](#deploy-on-red-hat-openshift) 
+* [Deploy on Kubernetes](#deploy-on-kubernetes)
+* [Run Locally](#run-locally)
 
 ## Deploy from Docker Hub
 
@@ -205,3 +205,7 @@ To run the Flask API app in debug mode, edit `config.py` to set `DEBUG = True` u
 ### 6. Cleanup
 
 To stop the Docker container, type `CTRL` + `C` in your terminal.
+
+## Train this Model on Watson Machine Learning
+
+This model supports training from scratch on a custom dataset. Please follow the steps listed under the [training README](training/README.md) to retrain the model on [Watson Machine Learning](https://www.ibm.com/cloud/machine-learning), a deep learning as a service offering of [IBM Cloud](https://ibm.biz/Bdz2XM).

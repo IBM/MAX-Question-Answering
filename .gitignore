@@ -103,3 +103,5 @@ ENV/
 
 .DS_Store
 .vscode/settings.json
+custom_assets/*
+training/training_output/*
