@@ -105,3 +105,4 @@ ENV/
 .vscode/settings.json
 custom_assets/*
 training/training_output/*
+*-model-building-code.zip
