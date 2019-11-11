@@ -212,6 +212,6 @@ The model-serving microservice out of the box serves the pre-trained model which
    
  2. Run the customized Docker image.
  
-    ```
+    ```bash
     $ docker run -it -p 5000:5000 max-question-answering
     ```
