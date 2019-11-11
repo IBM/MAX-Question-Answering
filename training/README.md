@@ -42,7 +42,7 @@ To perform model training, you need access to a Watson Machine Learning service 
 
 1. Locate the training configuration file. It is named `max-question-answering-training-config.yaml`.
 
-   ```
+   ```bash
 
    $ ls *.yaml
      max-question-answering-training-config.yaml
