@@ -50,7 +50,7 @@ To perform model training, you need access to a Watson Machine Learning service 
 
 2. Run `setup_max_model_training` and follow the prompts to configure model training.
 
-   ```
+   ```bash
     $ ./setup_max_model_training max-question-answering-training-config.yaml
      ...
      ------------------------------------------------------------------------------
