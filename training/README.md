@@ -203,7 +203,7 @@ The model-serving microservice out of the box serves the pre-trained model which
 
 1. Rebuild the Docker image. In `$MODEL_REPO_HOME_DIR` run
 
-   ```
+   ```bash
    $ docker build -t max-question-answering --build-arg use_pre_trained_model=false . 
     ...
    ```
