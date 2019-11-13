@@ -7,7 +7,7 @@
 This repository contains code to instantiate and deploy a Question Answering model. Given a body of text (context) about a subject and questions about that subject, the model will answer questions based on the given context.
 
 The model is based on the [BERT model](https://github.com/google-research/bert). The model files are hosted on
-[IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-dev/max-question-response/1.0.0/assets.tar.gz).
+[IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-question-answering/1.0.0/assets.tar.gz).
 The code in this repository deploys the model as a web service in a Docker container. This repository was developed
 as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
 
