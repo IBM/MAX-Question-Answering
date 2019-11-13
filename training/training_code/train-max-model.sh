@@ -13,7 +13,6 @@ POST_PROCESSING_FAILED=2
 PACKAGING_FAILED_RETURN_CODE=3
 CUSTOMIZATION_ERROR_RETURN_CODE=4
 ENV_ERROR_RETURN_CODE=5
-DATA_DIR=${DATA_DIR}/data
 
 # --------------------------------------------------------------------
 #  Verify that the required environment variables are defined
@@ -25,6 +24,8 @@ if [ -z ${DATA_DIR+x} ]; then
   echo "Error. Environment variable DATA_DIR is not defined."
   exit $ENV_ERROR_RETURN_CODE
 fi
+
+DATA_DIR=${DATA_DIR}/data
 
 if [ ! -d ${DATA_DIR} ]; then 
   echo "Error. Environment variable DATA_DIR (\"$DATA_DIR\") does not identify an existing directory."
