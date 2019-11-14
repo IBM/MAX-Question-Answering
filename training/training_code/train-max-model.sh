@@ -25,6 +25,8 @@ if [ -z ${DATA_DIR+x} ]; then
   exit $ENV_ERROR_RETURN_CODE
 fi
 
+DATA_DIR=${DATA_DIR}/data
+
 if [ ! -d ${DATA_DIR} ]; then 
   echo "Error. Environment variable DATA_DIR (\"$DATA_DIR\") does not identify an existing directory."
   exit $ENV_ERROR_RETURN_CODE
