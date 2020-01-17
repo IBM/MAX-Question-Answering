@@ -27,7 +27,7 @@ fi
 
 DATA_DIR=${DATA_DIR}/data
 
-if [ ! -d ${DATA_DIR} ]; then 
+if [ ! -d ${DATA_DIR} ]; then
   echo "Error. Environment variable DATA_DIR (\"$DATA_DIR\") does not identify an existing directory."
   exit $ENV_ERROR_RETURN_CODE
 fi
@@ -39,7 +39,7 @@ if [ -z ${RESULT_DIR+x} ]; then
   exit $ENV_ERROR_RETURN_CODE
 fi
 
-if [ ! -d ${RESULT_DIR} ]; then 
+if [ ! -d ${RESULT_DIR} ]; then
   echo "Error. Environment variable RESULT_DIR (\"$RESULT_DIR\") does not identify an existing directory."
   exit $ENV_ERROR_RETURN_CODE
 fi
@@ -54,9 +54,9 @@ echo "# ************************************************************"
 echo "# Preparing for model training"
 echo "# ************************************************************"
 
-# Prior to launching this script, WML copies the training data from 
+# Prior to launching this script, WML copies the training data from
 # Cloud Object Storage to the $DATA_DIR directory. Use this environment
-# variable to access the data.  
+# variable to access the data.
 echo "Training data is stored in $DATA_DIR"
 
 # The WML stores work files in the $RESULT_DIR.
@@ -112,13 +112,13 @@ echo "# ************************************************************"
 echo "# Post processing ..."
 echo "# ************************************************************"
 
-# according to WML coding guidelines the trained model should be 
+# according to WML coding guidelines the trained model should be
 # saved in ${RESULT_DIR}/model
 cd ${RESULT_DIR}/model
 
 #
-# Post processing for serialized TensorFlow models: 
-# If the output of the training run is a TensorFlow checkpoint, patch it. 
+# Post processing for serialized TensorFlow models:
+# If the output of the training run is a TensorFlow checkpoint, patch it.
 #
 # ---------------------------------------------------------------
 # Prepare for packaging
@@ -179,7 +179,7 @@ OUTPUT_ARCHIVE=${RESULT_DIR}/model_training_output.tar.gz
 
 CWD=`pwd`
 cd $BASE_STAGING_DIR
-# Create compressed archive from $BASE_STAGING_DIR 
+# Create compressed archive from $BASE_STAGING_DIR
 echo "Creating downloadable archive \"$OUTPUT_ARCHIVE\"."
 tar cvfz ${OUTPUT_ARCHIVE} .
 RETURN_CODE=$?

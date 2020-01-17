@@ -1,6 +1,6 @@
 ## Train the Model with Your Own Data
 
-This document provides instructions to train the model on Watson Machine Learning, an offering of IBM Cloud. The instructions in this document assume that you already have an IBM Cloud account. If not, please create an [IBM Cloud](https://ibm.biz/Bdz2XM) account. 
+This document provides instructions to train the model on Watson Machine Learning, an offering of IBM Cloud. The instructions in this document assume that you already have an IBM Cloud account. If not, please create an [IBM Cloud](https://ibm.biz/Bdz2XM) account.
 
 - [Prepare Data for Training](#prepare-data-for-training)
 - [Train the Model](#train-the-model)
@@ -17,7 +17,7 @@ To prepare your data for training complete the steps listed in [data_preparation
 - [Customize Training](#customize-training)
 - [Train the Model Using Watson Machine Learning](#train-the-model-using-watson-machine-learning)
 
-In this document `$MODEL_REPO_HOME_DIR` refers to the cloned MAX model repository directory, e.g. `/users/gone_fishing/MAX-Question-Answering`. 
+In this document `$MODEL_REPO_HOME_DIR` refers to the cloned MAX model repository directory, e.g. `/users/gone_fishing/MAX-Question-Answering`.
 
 ### Install Local Prerequisites
 
@@ -27,7 +27,7 @@ Open a terminal window, change dir into `$MODEL_REPO_HOME_DIR/training` and inst
    $ cd training/
 
    $ pip install -r requirements.txt
-    ... 
+    ...
    ```
 
 The directory contains two Python scripts, `setup_max_model_training.py` and `train_max_model.py`, which you'll use to prepare your environment for model training and to perform model training on Watson Machine Learning.
@@ -59,15 +59,15 @@ To perform model training, you need access to a Watson Machine Learning service 
      Training data bucket name   : max-question-answering-sample-input
      Local data directory        : sample_training_data/
      Training results bucket name: max-question-answering-sample-output
-     Compute configuration       : k80     
+     Compute configuration       : k80
    ```
 
    The setup script updates the training configuration file using the information you've provided. For security reasons, confidential information, such as API keys or passwords, are _not_ stored in this file. Instead the script displays a set of environment variables that you must define to make this information available to the training script.
-   
+
 3. Once setup is completed, define the displayed environment variables. The model training script `train_max_model.py` uses those variables to access your training resources.
 
    MacOS/Linux example:
-   
+
    ```
    $ export ML_APIKEY=...
    $ export ML_INSTANCE=...
@@ -77,7 +77,7 @@ To perform model training, you need access to a Watson Machine Learning service 
    ```
 
    Microsoft Windows:
-   
+
    ```
    $ set ML_APIKEY=...
    $ set ML_INSTANCE=...
@@ -100,7 +100,7 @@ If you wish to change the network architecture or training hyper-parameters like
 
 The `train_max_model.py` script verifies your configuration settings, packages the model training code, uploads it to Watson Machine Learning, launches the training run, monitors the training run, and downloads the trained model artifacts.
 
-Complete the following steps in the terminal window where the earlier mentioned environment variables are defined. 
+Complete the following steps in the terminal window where the earlier mentioned environment variables are defined.
 
 #### Steps
 
@@ -149,13 +149,13 @@ Complete the following steps in the terminal window where the earlier mentioned 
    ```
 
    To **stop** monitoring (but continue model training), press `Ctrl+C` once.
- 
-   To **restart** monitoring, run the following command, replacing `<training-id>` with the id that was displayed when you started model training. 
-   
+
+   To **restart** monitoring, run the following command, replacing `<training-id>` with the id that was displayed when you started model training.
+
       ```
       python train_max_model.py max-question-answering-training-config.yaml package <training-id>
       ```
-  
+
    To **cancel** the training run, press `Ctrl+C` twice.
 
    After training has completed the training log file `training-log.txt` is downloaded along with the trained model artifacts.
@@ -180,7 +180,7 @@ Complete the following steps in the terminal window where the earlier mentioned 
    $ ls training_output/
      model_training_output.tar.gz
      trained_model/
-     training-log.txt 
+     training-log.txt
    ```
 
 4. Return to the parent directory `$MODEL_REPO_HOME_DIR`.
@@ -196,14 +196,14 @@ The model-serving microservice out of the box serves the pre-trained model which
 1. Rebuild the Docker image. In `$MODEL_REPO_HOME_DIR` run
 
    ```bash
-   $ docker build -t max-question-answering --build-arg use_pre_trained_model=false . 
+   $ docker build -t max-question-answering --build-arg use_pre_trained_model=false .
     ...
    ```
-   
+
    > If the optional parameter `use_pre_trained_model` is set to `true` or if the parameter is not defined the Docker image will be configured to serve the pre-trained model.
-   
+
  2. Run the customized Docker image.
- 
+
     ```bash
     $ docker run -it -p 5000:5000 max-question-answering
     ```
