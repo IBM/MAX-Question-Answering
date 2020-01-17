@@ -13,7 +13,7 @@ as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/ex
 
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
-| ------------- | --------  | -------- | --------- | --------- | -------------- | 
+| ------------- | --------  | -------- | --------- | --------- | -------------- |
 | Natural Language Processing | Question and Answer | General | TensorFlow | [SQuAD 1.1](https://rajpurkar.github.io/SQuAD-explorer/) | Text |
 
 _Note: the SQuAD 1.1 files are no longer on the dataset website but can be found on the [Google BERT](https://github.com/google-research/bert) repo_
@@ -55,7 +55,7 @@ On datasets where the answers given are designed to not be exact matches to a sp
 ## Deployment Options
 
 * [Deploy from Docker Hub](#deploy-from-docker-hub)
-* [Deploy on Red Hat OpenShift](#deploy-on-red-hat-openshift) 
+* [Deploy on Red Hat OpenShift](#deploy-on-red-hat-openshift)
 * [Deploy on Kubernetes](#deploy-on-kubernetes)
 * [Run Locally](#run-locally)
 
@@ -112,7 +112,7 @@ Change directory into the repository base folder:
 $ cd MAX-Question-Answering
 ```
 
-To build the docker image locally, run: 
+To build the docker image locally, run:
 
 ```
 $ docker build -t max-question-answering .
@@ -211,5 +211,5 @@ To stop the Docker container, type `CTRL` + `C` in your terminal.
 This model supports training from scratch on a custom dataset. Please follow the steps listed under the [training README](training/README.md) to retrain the model on [Watson Machine Learning](https://www.ibm.com/cloud/machine-learning), a deep learning as a service offering of [IBM Cloud](https://ibm.biz/Bdz2XM).
 
 ## Resources and Contributions
-   
+
 If you are interested in contributing to the Model Asset Exchange project or have any queries, please follow the instructions [here](https://github.com/CODAIT/max-central-repo).
