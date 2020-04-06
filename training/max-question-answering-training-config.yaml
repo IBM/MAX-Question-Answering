@@ -6,7 +6,7 @@ author:
       name: IBM CODAIT
 framework:
       name: tensorflow
-      version: '1.13'
+      version: '1.15'
       runtimes:
             name: python
             version: 3.6
