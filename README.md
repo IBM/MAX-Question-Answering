@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/IBM/MAX-Question-Answering.svg?branch=master)](https://travis-ci.com/IBM/MAX-Question-Answering) [![Website Status](https://img.shields.io/website/http/max-question-answering.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-question-answering.max.us-south.containers.appdomain.cloud/)
+[![Build Status](https://travis-ci.com/IBM/MAX-Question-Answering.svg?branch=master)](https://travis-ci.com/IBM/MAX-Question-Answering) [![Website Status](https://img.shields.io/website/http/max-question-answering.codait-prod-41208c73af8fca213512856c7a09db52-0000.us-east.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-question-answering.codait-prod-41208c73af8fca213512856c7a09db52-0000.us-east.containers.appdomain.cloud)
 
 [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
 
@@ -7,7 +7,7 @@
 This repository contains code to instantiate and deploy a Question Answering model. Given a body of text (context) about a subject and questions about that subject, the model will answer questions based on the given context.
 
 The model is based on the [BERT model](https://github.com/google-research/bert). The model files are hosted on
-[IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-question-answering/1.0.0/assets.tar.gz).
+[IBM Cloud Object Storage](https://max-cdn.cdn.appdomain.cloud/max-question-answering/1.0.0/assets.tar.gz).
 The code in this repository deploys the model as a web service in a Docker container. This repository was developed
 as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
 
