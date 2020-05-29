@@ -212,9 +212,14 @@ def convert_examples_to_features(examples, tokenizer, max_seq_length,
                 input_mask.append(0)
                 segment_ids.append(0)
 
-            assert len(input_ids) == max_seq_length
-            assert len(input_mask) == max_seq_length
-            assert len(segment_ids) == max_seq_length
+            if len(input_ids) != max_seq_length:
+                raise ValueError("input_ids has invalid length: %r" % len(input_ids))
+
+            if len(input_mask) != max_seq_length:
+                raise ValueError("input_mask has invalid length: %r" % len(input_mask))
+
+            if len(segment_ids) != max_seq_length:
+                raise ValueError("segment_ids has invalid length: %r" % len(segment_ids))
 
             start_position = None
             end_position = None

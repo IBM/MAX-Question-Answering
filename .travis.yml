@@ -24,7 +24,8 @@ install:
   - docker run -it -d --rm -p 5000:5000 max-question-answering
   - pip install -r requirements-test.txt
 before_script:
+  - flake8 . --max-line-length=127
+  - bandit -r .
   - sleep 30
 script:
-  - flake8 . --max-line-length=127
   - pytest tests/test.py
