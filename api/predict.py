@@ -75,7 +75,8 @@ class ModelPredictAPI(PredictAPI):
         input_json = MAX_API.payload
         try:
             for p in input_json["paragraphs"]:
-                assert frozenset(p.keys()) == frozenset(["context", "questions"])
+                if not frozenset(p.keys()) == frozenset(["context", "questions"]):
+                    raise ValueError("Invalid input, please provide a context and questions.")
                 if p["context"] == "":
                     abort(400, "Invalid input, please provide a paragraph.")
                 if not isinstance(p["questions"], list):
