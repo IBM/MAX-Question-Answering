@@ -76,7 +76,7 @@ class ModelPredictAPI(PredictAPI):
         try:
             for p in input_json["paragraphs"]:
                 if not frozenset(p.keys()) == frozenset(["context", "questions"]):
-                    abort(400, "Invalid input, please provide a context and questions.")
+                    abort(400, f"Invalid input paragraph keys {list(p.keys())}, please provide a context and questions.")
                 if p["context"] == "":
                     abort(400, "Invalid input, please provide a paragraph.")
                 if not isinstance(p["questions"], list):
