@@ -43,6 +43,6 @@ spec:
     spec:
       containers:
       - name: max-question-answering
-        image: codait/max-question-answering:latest
+        image: quay.io/codait/max-question-answering:latest
         ports:
         - containerPort: 5000
