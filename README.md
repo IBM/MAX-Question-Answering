@@ -51,6 +51,7 @@ On datasets where the answers given are designed to not be exact matches to a sp
 
 * `docker`: The [Docker](https://www.docker.com/) command-line interface. Follow the [installation instructions](https://docs.docker.com/install/) for your system.
 * The minimum recommended resources for this model is 2 GiB Memory and 4 CPUs.
+* If you are on x86-64/AMD64, your CPU must support [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) at the minimum.
 
 ## Deployment Options
 
